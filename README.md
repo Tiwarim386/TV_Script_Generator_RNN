@@ -3,29 +3,10 @@ Using RNN's on a Seinfeld dataset of scripts from 9 seasons to generate own Sein
 
 ## Project Information
 
-### Contents
+## Results
 
-- Get the Data
-- Explore the Data
-- Implement Pre-processing Functions
-	- Lookup Table
-	- Tokenize Punctuation
-- Pre-process all the data and save it
-- Check Access to GPU
-- Input
-	- Batching
-	- Test your dataloader
-	- Sizes
-	- Values
-- Build the Neural Network
-	- Define forward and backpropagation
-- Neural Network Training
-	- Train Loop
-	- Hyperparameters
-	- Train 
-- Generate TV Script
-	- Generate text
-	- Generate a new script
+I have trained the model over 5 epochs to give me a loss of about 3.2. You can see that there are multiple characters that say (somewhat) complete sentences, but it isn't perfect. It takes quite a while to get good results, and often, you'll have to use a smaller vocabulary (and discard uncommon words), or get more data. The Seinfeld dataset is about 3.4 MB, which is big enough for our purposes; for script generation you'll want more than 1 MB of text, generally.
+
 
 ### Model
 | Layer | Input Dimension | Output Dimension |
@@ -47,23 +28,6 @@ Using RNN's on a Seinfeld dataset of scripts from 9 seasons to generate own Sein
 |embedding_dim|463|
 |hidden_dim|512|
 |n_layers(Number of RNN Layers)|2|
-
-### Question:How did I decide on my model hyperparameters?
-
-Answer: I tried running for 15 epochs. but it was taking a lot of time to train.So, I reduced the no. of epochs to 10 but my GPU workspace used to disconect/sleep (the limit is 30 mins of inactivity). So i used the workspace_utilities.py file provided. But since it was still taking a lot of time to train I finally reduced no. of epochs to 5. Which was good enough for a Loss of less than "3.5".
-
-I arbitrarily chose 150 as my sequence length initially but loss started with huge number. Then I thought if in a plot of TV Script a normal conversation would be minimum 5 words and maximum 10 words (maybe 20-25 if not a monologue? ) .So, I chose 10 as my sequence length this time. Although, model's training speed was slow but the loss started with very less number(5.11) and I reached objective of less than 3.5 ( EVEN BEFORE 5th Epoch!! ) .
-
-About the hidden dim I choose 512. Its a standard practice, we need to choose values in powers of 2 (i.e. 64,128,256,512) etc. More the value better the training.
-
-About the n_layers, as we are using the LSTM cells its standard practice to use between 1-3 layers as we go more deeper there will high computational complexity but this is reverse in case of CNN. I used 2 as n_layers. Moreover I wanted to Use Dropout & Because of Dropout Constraints n_layers must be >= 2
-
-As expected, We get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.
-
-
-## Results
-
-I have trained the model over 5 epochs to give me a loss of about 3.2. You can see that there are multiple characters that say (somewhat) complete sentences, but it isn't perfect. It takes quite a while to get good results, and often, you'll have to use a smaller vocabulary (and discard uncommon words), or get more data. The Seinfeld dataset is about 3.4 MB, which is big enough for our purposes; for script generation you'll want more than 1 MB of text, generally.
 
 ### Sample Script Generated after Training
 
@@ -122,3 +86,45 @@ jerry: i don't have any idea.(she leaves)
 jerry: oh, yeah.(to jerry) what are we talking about?
 
 kramer: oh, yeah.(to jerry) you know, the only thing is a scam.
+
+
+
+### Question:How did I decide on my model hyperparameters?
+
+Answer: I tried running for 15 epochs. but it was taking a lot of time to train.So, I reduced the no. of epochs to 10 but my GPU workspace used to disconect/sleep (the limit is 30 mins of inactivity). So i used the workspace_utilities.py file provided. But since it was still taking a lot of time to train I finally reduced no. of epochs to 5. Which was good enough for a Loss of less than "3.5".
+
+I arbitrarily chose 150 as my sequence length initially but loss started with huge number. Then I thought if in a plot of TV Script a normal conversation would be minimum 5 words and maximum 10 words (maybe 20-25 if not a monologue? ) .So, I chose 10 as my sequence length this time. Although, model's training speed was slow but the loss started with very less number(5.11) and I reached objective of less than 3.5 ( EVEN BEFORE 5th Epoch!! ) .
+
+About the hidden dim I choose 512. Its a standard practice, we need to choose values in powers of 2 (i.e. 64,128,256,512) etc. More the value better the training.
+
+About the n_layers, as we are using the LSTM cells its standard practice to use between 1-3 layers as we go more deeper there will high computational complexity but this is reverse in case of CNN. I used 2 as n_layers. Moreover I wanted to Use Dropout & Because of Dropout Constraints n_layers must be >= 2
+
+As expected, We get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.
+
+
+
+### Contents
+
+- Get the Data
+- Explore the Data
+- Implement Pre-processing Functions
+	- Lookup Table
+	- Tokenize Punctuation
+- Pre-process all the data and save it
+- Check Access to GPU
+- Input
+	- Batching
+	- Test your dataloader
+	- Sizes
+	- Values
+- Build the Neural Network
+	- Define forward and backpropagation
+- Neural Network Training
+	- Train Loop
+	- Hyperparameters
+	- Train 
+- Generate TV Script
+	- Generate text
+	- Generate a new script
+
+
