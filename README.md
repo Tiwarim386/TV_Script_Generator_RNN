@@ -102,6 +102,15 @@ About the n_layers, as we are using the LSTM cells its standard practice to use 
 
 As expected, We get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.
 
+## Future Tasks to make my project stand out
+
+
+### 1 Use topk sampling to generate new words
+### 2 Applying what I velearned to one of these problems.
+
+ 2.1 Generate your own Bach music using like [DeepBach](https://arxiv.org/pdf/1612.01010.pdf).
+ 2.2 Predict seizures in intracranial EEG recordings on [Kaggle](https://www.kaggle.com/c/seizure-prediction).
+
 
 
 ### Contents
