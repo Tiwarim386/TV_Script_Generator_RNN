@@ -1,11 +1,14 @@
 # TV_Script_Generator_RNN
 Using RNN's on a Seinfeld dataset of scripts from 9 seasons to generate own Seinfeld TV scripts. The Neural Network will generate a new, "fake" TV script based on patterns it recognizes in this training data.
 
+
 ## Project Information
+
 
 ## Results
 
 I have trained the model over 5 epochs to give me a loss of about 3.2. You can see that there are multiple characters that say (somewhat) complete sentences, but it isn't perfect. It takes quite a while to get good results, and often, you'll have to use a smaller vocabulary (and discard uncommon words), or get more data. The Seinfeld dataset is about 3.4 MB, which is big enough for our purposes; for script generation you'll want more than 1 MB of text, generally.
+
 
 
 ### Model
@@ -14,6 +17,8 @@ I have trained the model over 5 epochs to give me a loss of about 3.2. You can s
 |Embedding|Vocab Size| 463 |
 |LSTM|463|512|
 |Fully Connected Layer|512|Vocab Size|
+
+
 
 ### Hyperparameters								
 |Data Parameter|Value|
@@ -28,6 +33,8 @@ I have trained the model over 5 epochs to give me a loss of about 3.2. You can s
 |embedding_dim|463|
 |hidden_dim|512|
 |n_layers(Number of RNN Layers)|2|
+
+
 
 ### Sample Script Generated after Training
 
@@ -87,7 +94,11 @@ jerry: oh, yeah.(to jerry) what are we talking about?
 
 kramer: oh, yeah.(to jerry) you know, the only thing is a scam.
 
+
+
 ### Look at complete scripts Generated [Here](https://github.com/Tiwarim386/TV_Script_Generator_RNN/tree/master/Generated%20Scripts)
+
+
 
 
 ### Question:How did I decide on my model hyperparameters?
@@ -102,6 +113,8 @@ About the n_layers, as we are using the LSTM cells its standard practice to use 
 
 As expected, We get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.
 
+
+
 ## Future Tasks to make my project stand out
 
 
@@ -110,6 +123,8 @@ As expected, We get better results with larger hidden and n_layer dimensions, bu
 
  2.1 Generate your own Bach music using like [DeepBach](https://arxiv.org/pdf/1612.01010.pdf).
  2.2 Predict seizures in intracranial EEG recordings on [Kaggle](https://www.kaggle.com/c/seizure-prediction).
+
+
 
 
 
